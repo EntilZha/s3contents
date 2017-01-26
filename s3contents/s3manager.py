@@ -20,8 +20,7 @@ class S3ContentsManager(ContentsManager, HasTraits):
     secret_access_key = Unicode(help="S3/AWS secret access key").tag(config=True, env="JPYNB_S3_SECRET_ACCESS_KEY")
 
     bucket_name = Unicode("notebooks", help="The").tag(config=True, env="JPYNB_S3_BUCKET_NAME")
-    region_name = Unicode("us-east-1", help="Region Name").tag(config=True, env="JPYNB_S3_REGION_NAME")
-    endpoint_url = Unicode("s3.amazonaws.com", help="The").tag(config=True, env="JPYNB_S3_ENDPOINT_URL")
+    region_name = Unicode("us-west-2", help="Region Name").tag(config=True, env="JPYNB_S3_REGION_NAME")
     signature_version = Unicode(help="").tag(config=True)
     delimiter = Unicode("/", help="Path delimiter").tag(config=True)
 
@@ -33,7 +32,6 @@ class S3ContentsManager(ContentsManager, HasTraits):
             secret_access_key=self.secret_access_key,
             bucket_name=self.bucket_name,
             region_name=self.region_name,
-            endpoint_url=self.endpoint_url,
             signature_version=self.signature_version,
             delimiter=self.delimiter
         )
